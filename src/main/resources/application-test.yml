@@ -1,0 +1,13 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /
+spring:
+  # postgres 数据源配置
+  datasource:
+    name: test
+    url: jdbc:postgresql://10.10.6.224:5432/hx3d?currentSchema=hx_web&useUnicode=true&characterEncoding=utf-8
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+

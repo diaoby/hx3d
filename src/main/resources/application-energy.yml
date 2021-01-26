@@ -1,0 +1,18 @@
+######################################## 能源厂家信息配置####################################
+energy:
+  # 柏顿厂家配置
+  bdfactory:
+    ip: 10.9.0.145
+    api_router: OpenApi/Http/
+    app_id: 60b65d85c2724796b8da2b0dcb130417
+    token:  63b8cb5cf1784e448ad7be3a930ca6bd
+  # 恒敬厂家配置
+  hjfactory:
+    ip: 39.98.38.254
+    port: 8084
+    loginpwd: 123456
+    loginname:  HXSJY
+  # 索恒科技厂家配置
+  shkjfactroy:
+    ip: localhost
+    port: 8084

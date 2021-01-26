@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    active: dev
+    # 引入其他配置文件  mybatisplus  energy 能源厂家接口配置 cron 定时配置
+    include:
+      - mybatisplus
+      - energy
+      - cron
+  # 热部署配置
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+  # 日期格式化
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+# logback日志配置
+logging:
+  config: classpath:log/logback-spring.xml
+  # 文件存储目录
+  file:
+    path: logs
