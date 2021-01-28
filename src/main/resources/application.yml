@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dev
+    active: prod
     # 引入其他配置文件  mybatisplus  energy 能源厂家接口配置 cron 定时配置
     include:
       - mybatisplus

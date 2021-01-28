@@ -1,7 +1,7 @@
 server:
   port: 8082
   servlet:
-    context-path: /
+    context-path: /hx3d/
 spring:
   # postgres 数据源配置
   datasource:
@@ -11,5 +11,5 @@ spring:
     password: postgres
     driver-class-name: org.postgresql.Driver
 bigdataplatform:
-  ip: localhost
-  port: 8082
+  ip: 10.13.4.55
+  port: 9090

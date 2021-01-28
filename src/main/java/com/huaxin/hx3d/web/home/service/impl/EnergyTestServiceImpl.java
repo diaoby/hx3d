@@ -55,7 +55,12 @@ public class EnergyTestServiceImpl extends ServiceImpl<EnergyTestMapper, EnergyT
     /**
      *
      */
-    private static final String INVOKE_METHOD = "/energy/bd/invokemethod/";
+    private static final String INVOKE_METHOD = "/burton/invokemethod/";
+
+    /**
+     *
+     */
+    private static final String GET_TEMPERATRUE = "/burton/gettemperatrue/";
 
     /**
      *
@@ -88,29 +93,33 @@ public class EnergyTestServiceImpl extends ServiceImpl<EnergyTestMapper, EnergyT
     public TemperatrueTest getTemperatrue(String id) {
         TemperatrueTest temperatrueTest = new TemperatrueTest();
         temperatrueTest.setId(id);
-        JSONObject siteUnitInfo = bdEnergyService.getSiteUnitInfo(id);
-        JSONObject data = siteUnitInfo.getJSONObject("data");
-        if(null != data){
-            JSONArray attrs = data.getJSONArray("attrs");
-            Iterator<Object> iterator = attrs.iterator();
-            while (iterator.hasNext()) {
-                JSONObject next = (JSONObject)iterator.next();
-                if(null != next){
-                    String name =  next.getString("name");
-                    if(name.equals("WD_SD")){
-                        JSONObject value = next.getJSONObject("value");
-                        double tempValue = value.getDoubleValue("Value");
-                        tempValue= (double) Math.round(tempValue * 100) / 100;
-                        temperatrueTest.setTempValue(tempValue);
-                    }
-                    if(name.equals("QTFORCE")){
-                        JSONObject value = next.getJSONObject("value");
-                        int tmpStatus = value.getIntValue("Value");
-                        temperatrueTest.setTempStatus(tmpStatus==1?true:false);
-                    }
-                }
-            }
-        }
+//        JSONObject siteUnitInfo = bdEnergyService.getSiteUnitInfo(id);
+//        JSONObject data = siteUnitInfo.getJSONObject("data");
+//        if(null != data){
+//            JSONArray attrs = data.getJSONArray("attrs");
+//            Iterator<Object> iterator = attrs.iterator();
+//            while (iterator.hasNext()) {
+//                JSONObject next = (JSONObject)iterator.next();
+//                if(null != next){
+//                    String name =  next.getString("name");
+//                    if(name.equals("WD_SD")){
+//                        JSONObject value = next.getJSONObject("value");
+//                        double tempValue = value.getDoubleValue("Value");
+//                        tempValue= (double) Math.round(tempValue * 100) / 100;
+//                        temperatrueTest.setTempValue(tempValue);
+//                    }
+//                    if(name.equals("QTFORCE")){
+//                        JSONObject value = next.getJSONObject("value");
+//                        int tmpStatus = value.getIntValue("Value");
+//                        temperatrueTest.setTempStatus(tmpStatus==1?true:false);
+//                    }
+//                }
+//            }
+//        }
+
+        String url = getUrl(GET_TEMPERATRUE+"/"+id);
+        ResponseEntity<TemperatrueTest> responseEntity = restTemplate.getForEntity(url, TemperatrueTest.class);
+        temperatrueTest = responseEntity.getBody();
         return temperatrueTest;
     }
 
