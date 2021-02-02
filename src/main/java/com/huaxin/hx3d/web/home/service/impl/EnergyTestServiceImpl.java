@@ -17,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -81,7 +82,9 @@ public class EnergyTestServiceImpl extends ServiceImpl<EnergyTestMapper, EnergyT
             collect = energyTestList.stream().limit(NUM).collect(Collectors.toList());
         }
         double count = collect.stream().mapToDouble(EnergyTest::getEnergyNum).sum();
-        EnergyTestVo ev = EnergyTestVo.builder().energyTestsList(collect).totalEnergy(count).build();
+        DecimalFormat df = new DecimalFormat("######0.00");
+        String format = df.format(count);
+        EnergyTestVo ev = EnergyTestVo.builder().energyTestsList(collect).totalEnergy(Double.valueOf(format)).build();
         return ev;
     }
 

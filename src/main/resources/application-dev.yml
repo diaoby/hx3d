@@ -11,5 +11,5 @@ spring:
     password: postgres
     driver-class-name: org.postgresql.Driver
 bigdataplatform:
-  ip: 10.13.4.55
-  port: 9090
+  ip: localhost
+  port: 8082
