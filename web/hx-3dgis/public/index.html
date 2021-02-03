@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>华信智慧园区</title>
+  <link rel="stylesheet" href="./index.css" />
+  <link rel="stylesheet" href="./video-js.css" >
+  <!-- 直播流视频相关 -->
+  <script src="./video.min.js"></script>
+  <script src="./flv.min.js"></script>
+  <script src="./videojs-flvjs.min.js"></script>
+  <script src="./jquery-1.12.4.min.js"></script>
+  <script src="./jsencrypt.min.js"></script>            <!-- 用于RSA加密 -->
+  <script src="./jsWebControl-1.0.0.min.js"></script>   <!-- 用于前端与插件交互 -->
+
+  <script>
+    var json = {
+      EngineIP: 'http://10.10.6.224:9044/',
+      // EngineIP: 'http://115.236.87.26:9915/',
+      key: 'wSryzKApfH8y', //产品密钥（必填）y
+      screenWidth: 1920,
+      screenHeight: 1080
+      // iceServer: 'turn:115.236.87.26:3479',
+      // iceUser: 'test',
+      // icePwd: 'gisway'
+    };
+    window.sessionStorage.setItem("ddmap_params", JSON.stringify(json));
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script src="./EngineWebTmp.js?v=" + new Date().getTime() + "></script>
+  <script src="./EnginePlus.js"></script>
+  <!-- <script src="http://192.168.4.74:8000/common.js"></script>
+  <script src="http://192.168.4.74:8000/index.js"></script>
+  <script src="http://192.168.4.74:9000/common.js"></script>
+  <script src="http://192.168.4.74:9000/index.js"></script> -->
+  <script src="./index.js"></script>
+</body>
+
+</html>
