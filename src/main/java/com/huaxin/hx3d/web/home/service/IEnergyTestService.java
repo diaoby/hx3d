@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.huaxin.hx3d.web.home.model.TemperatrueTest;
 import com.huaxin.hx3d.web.vo.EnergyTestVo;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -35,4 +37,10 @@ public interface IEnergyTestService extends IService<EnergyTest> {
      * @return
      */
     JSONObject invokemethod(String method, String id, String value);
+
+    /**
+     * 测试数据
+     * @return
+     */
+    List getList();
 }

@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * <p>
  *  前端控制器
@@ -33,6 +35,17 @@ public class EnergyTestController {
      */
     @Autowired
     private IEnergyTestService iEnergyTestService;
+
+    /**
+     * 测试
+     * @return
+     */
+    @RequestMapping("/getlist")
+    @ApiOperation(value = "测试", notes = "测试")
+    @CrossOrigin
+    public List getList(){
+        return iEnergyTestService.getList();
+    }
 
     /**
      * 获取能耗概况

@@ -145,6 +145,16 @@ public class EnergyTestServiceImpl extends ServiceImpl<EnergyTestMapper, EnergyT
         return null;
     }
 
+    @Override
+    public List getList() {
+        List list  = new ArrayList();
+        list.add("柏诚");
+        list.add("伯顿");
+        list.add("恒敬");
+        list.add("索恒科技");
+        return list;
+    }
+
     /**
      * 根据api获取对应url
      * @return
