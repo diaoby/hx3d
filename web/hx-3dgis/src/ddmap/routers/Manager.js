@@ -6,7 +6,7 @@ class Manager extends React.Component {
   render() {
     return (
       <div><ManIndex/></div>
-      <div><Home/></div>
+      // <div><Home/></div>
     )
   }
 }

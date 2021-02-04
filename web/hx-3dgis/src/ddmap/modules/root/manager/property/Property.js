@@ -1,8 +1,10 @@
 import React from 'react';
 import style from '../ManIndex.less';
+// import hkStyle from '../HkVideo.less';
 import ProAnaly from './ProAnaly';
 import ProData from './ProData';
 import Utils from '../../../../utils/Utils';
+import HkVideo from '../video/HkVideo';
 class Property extends React.Component {
     componentWillMount() {
 
@@ -44,20 +46,10 @@ class Property extends React.Component {
     }
     render() {
         return (
-            <div>
-                <div className={style.secondTab}>
-                    <ul>
-                        <li onClick={this.GGSS.bind(this)} className={this.props.parent.state.secondTab == "GGSS" ? style.active : ""}>公共设施</li>
-                        {/* <li onClick={this.DXGW.bind(this)} className={this.props.parent.state.secondTab == "DXGW" ? style.active : ""}>智能管网</li> */}
-                        {/* <li onClick={this.LDXLGL.bind(this)} className={this.props.parent.state.secondTab == "LDXLGL" ? style.active : ""}>弱电线路管理</li> */}
-                    </ul>
+            <div >
+                <div>
+                  <HkVideo></HkVideo>
                 </div>
-                <div className={style.monitor}>
-                    <div className={style.monitorCon}>
-                        <ProAnaly />
-                    </div>
-                </div>
-                <ProData />
             </div>
         );
     }

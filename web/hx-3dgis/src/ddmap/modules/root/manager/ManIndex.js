@@ -8,6 +8,7 @@ import Energy from './energy/Energy';
 import Property from './property/Property';
 import Maintenance from './maintenance/Maintenance';
 import { hashHistory } from 'react-router';
+
 var time;
 class ManIndex extends React.Component {
   state = {

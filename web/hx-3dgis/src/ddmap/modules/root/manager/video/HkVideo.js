@@ -23,8 +23,9 @@ class HkVideo extends React.Component {
 						cbIntegrationCallBack: cbIntegrationCallBack
 					});
 					
-					oWebControl.JS_CreateWnd("playWnd", 1000, 600).then(function () { //JS_CreateWnd创建视频播放窗口，宽高可设定
-						init();  // 创建播放实例成功后初始化
+					oWebControl.JS_CreateWnd("playWnd", 350, 300).then(function () { //JS_CreateWnd创建视频播放窗口，宽高可设定
+                        console.log('componentDidMount.cbConnectSuccess')
+                        init();  // 创建播放实例成功后初始化
 					});
                 }, function () { // 启动插件服务失败
                     console.log('启动插件服务失败')
@@ -105,7 +106,7 @@ class HkVideo extends React.Component {
                 })
             }).then(function (oData) {
                 console.log('初始化成功')
-				//oWebControl.JS_Resize(1000, 600);  // 初始化后resize一次，规避firefox下首次显示窗口后插件窗口未与DIV窗口重合问题
+				oWebControl.JS_Resize(350, 300);  // 初始化后resize一次，规避firefox下首次显示窗口后插件窗口未与DIV窗口重合问题
                 startPreview();
             });
         });
@@ -136,6 +137,7 @@ class HkVideo extends React.Component {
 
    //视频预览功能
      function startPreview() {
+        console.log('startPreview')
         var cameraIndexCode  = 'f32bf23f896c4c7a86fa197580c961b7';     //获取输入的监控点编号值，必填
         var streamMode = 0;                                     //主子码流标识：0-主码流，1-子码流
         var transMode = 1;                                      //传输协议：0-UDP，1-TCP
@@ -161,6 +163,17 @@ class HkVideo extends React.Component {
     }
 
     
+
+    componentWillUnmount(){
+        if (oWebControl != null){
+			oWebControl.JS_HideWnd();   // 先让窗口隐藏，规避可能的插件窗口滞后于浏览器消失问题 
+            oWebControl.JS_Disconnect().then(function(){  // 断开与插件服务连接成功
+                console.log('断开连接')
+			}, 
+			function() {  // 断开与插件服务连接失败
+			});
+        }
+    }
 
     render() {
         return (
