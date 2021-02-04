@@ -18,7 +18,9 @@
     "jquery": "^3.5.1",
     "react": "^15.4.0",
     "react-dom": "^15.4.0",
-    "react-load-script": "0.0.6"
+    "react-load-script": "0.0.6",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
