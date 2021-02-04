@@ -16,4 +16,20 @@ export default class RequestCreators {
             );
         }
     }
+
+    //园区概况
+    static PARK_INFO_GET_INFO_REQUEST= ()=>{
+        return (dispatch)=>{
+            const url = 'http://localhost:8082/hx3d//web/home/partinfo/getpartinfo';
+            Request.get(url, 
+                { asyn: true }, 
+                (data)=>{
+                    const action = ActionCreators.PARK_INFO_GET_INFO_ACTION(data)
+                    dispatch(action)
+                },
+                this
+            );
+        }
+    }
+    
 }

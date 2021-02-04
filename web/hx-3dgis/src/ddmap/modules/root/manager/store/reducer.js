@@ -5,7 +5,9 @@ const defaultState = {
     inputValue:'write something',
     list:[
        
-    ]
+    ],
+    //园区概况信息
+    parkInfo:{}
 };
 
 export default (state = defaultState,action)=>{
@@ -33,6 +35,13 @@ export default (state = defaultState,action)=>{
     if(action.type===ActionsType.TODO_LIST_GET_LIST){
         let newState = JSON.parse(JSON.stringify(state))
         newState.list = action.data
+        return newState
+    }
+
+    //园区概况数据获取
+    if(action.type===ActionsType.PARK_INFO_GET_INFO){
+        let newState = JSON.parse(JSON.stringify(state))
+        newState.parkInfo = action.data
         return newState
     }
     

@@ -5,4 +5,6 @@ export default class ActionsType {
     static TODO_LIST_ADD_ITEM = 'addItem';
     static TODO_LIST_DELETE_ITEM = 'deleteItem';
     static TODO_LIST_GET_LIST = 'getList';
+    //园区概况
+    static PARK_INFO_GET_INFO ='getInfo';
 }

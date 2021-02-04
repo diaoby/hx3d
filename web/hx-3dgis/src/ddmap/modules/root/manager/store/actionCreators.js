@@ -22,6 +22,11 @@ export default class ActionCreators {
         data
     })
 
+    static PARK_INFO_GET_INFO_ACTION = (data)=>({
+        type:ActionsType.PARK_INFO_GET_INFO,
+        data
+    })
+
 }
 
 
