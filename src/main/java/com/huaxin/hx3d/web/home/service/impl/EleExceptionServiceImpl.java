@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.huaxin.hx3d.web.home.mapper.EleExceptionMapper;
 import com.huaxin.hx3d.web.home.model.EleException;
-import com.huaxin.hx3d.web.home.model.FireAlarm;
 import com.huaxin.hx3d.web.home.service.IEleExceptionService;
 import org.springframework.stereotype.Service;
 
