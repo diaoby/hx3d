@@ -157,7 +157,7 @@ class MonitorList extends React.Component {
             })
         }  */}
          {/* < WebRtcVideo gateway="http://localhost:8083" streamId="demo1"></WebRtcVideo> */}
-         <HkVideo></HkVideo>
+         {/* <HkVideo></HkVideo> */}
        {/* <ul className={style.videoUl}>
           <li>
             <video autoPlay loop muted data-keepplaying data-autoplay onClick={this.changeSrc.bind(this, "北侧通道2", "sxt_model_1")} src="./video/北侧通道2.mp4">

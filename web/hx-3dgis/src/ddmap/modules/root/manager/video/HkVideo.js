@@ -3,9 +3,17 @@ import style from './HkVideo.less'
 
 var oWebControl= null
 var pubKey=''
+var hkWidth=800
+var hkHeight=600
+
 
 class HkVideo extends React.Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {};
+        hkWidth = this.props.width;
+        hkHeight = this.props.height;
+      }
     
     componentDidMount(){
         oWebControl = new WebControl({
@@ -22,8 +30,8 @@ class HkVideo extends React.Component {
 					oWebControl.JS_SetWindowControlCallback({   // 设置消息回调
 						cbIntegrationCallBack: cbIntegrationCallBack
 					});
-					
-					oWebControl.JS_CreateWnd("playWnd", 350, 300).then(function () { //JS_CreateWnd创建视频播放窗口，宽高可设定
+                    
+					oWebControl.JS_CreateWnd("playWnd", hkWidth,hkHeight).then(function () { //JS_CreateWnd创建视频播放窗口，宽高可设定
                         console.log('componentDidMount.cbConnectSuccess')
                         init();  // 创建播放实例成功后初始化
 					});
@@ -106,7 +114,7 @@ class HkVideo extends React.Component {
                 })
             }).then(function (oData) {
                 console.log('初始化成功')
-				oWebControl.JS_Resize(350, 300);  // 初始化后resize一次，规避firefox下首次显示窗口后插件窗口未与DIV窗口重合问题
+				oWebControl.JS_Resize(hkWidth,hkHeight);  // 初始化后resize一次，规避firefox下首次显示窗口后插件窗口未与DIV窗口重合问题
                 startPreview();
             });
         });
@@ -177,7 +185,7 @@ class HkVideo extends React.Component {
 
     render() {
         return (
-                 <div id="playWnd"  className={style.playWnd} ></div>
+                 <div id="playWnd"  className={style.playWnd} style={{"top": this.props.top,"left": this.props.left}}></div>
             )
     }
 }
